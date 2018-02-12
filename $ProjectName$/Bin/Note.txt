@@ -1,0 +1,10 @@
+this is where compiled modules go
+each platform and architect has its own folder
+
+/Win32
+/Win64
+/AndroidArm
+/AndroidArm64
+/Linux32
+/Linux64
+etc

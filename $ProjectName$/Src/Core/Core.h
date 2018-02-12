@@ -1,8 +1,9 @@
+//pragma once is used instead of classic ifndef HEADER_H, currently all the compilers support it
 #pragma once
+
 
 //each module must have its own API interface as $MODULENAME$_API
 #define CORE_API __declspec(dllexport)
-
 
 namespace ProjectName
 {
@@ -38,7 +39,8 @@ namespace ProjectName
 	};
 	
 	//'in' 'out' 'inout' prefixes must be used for more clarity when needed, don't use __IN and __OUT macros like Microsoft :D
-	bool GetRootClass(Object* inObjects, size_t numObjects, ClassData* outClassData);
+	//num and count could be used as suffix or prefix for length and counting
+	bool GetRootClass(const Object* inObjects, size_t numObjects, ClassData* outClassData);
 	
 	
 	//////////////////
@@ -147,14 +149,16 @@ namespace ProjectName
 	};
 	
 	
+	///
 	class TestClass
 	{
-		UserInfo	mUsers;
+		UserInfo*	mUsers = nullptr;
+		size_t 		mNumUsers = 0;
 		
 		void Func0(const char* str, size_t strLen) const
 		{
 			//try to not use i, j, k, l for loops especially when there are many for in a for in a for
-			//I use i prefix for all type of integers (signed and unsigned) but if u can't get along with it we can write n or ..?
+			//I use i prefix for all type of integers (signed and unsigned)
 			
 			for(int iUser = 0; iUser < mNumUser; iUser++)
 			{
@@ -176,12 +180,13 @@ void DrawPoint(Color32 color);
 //all the systems have float, double, int and unsigned. we won't code for 8 bit systems my cheap phone is 64 bit :)
 //I usually use unsigned or size_t for unsigned integers;
 
-//try to use less macro amap, for instance use template function for abs min max , .. instead of macro
+//try to use less macro as much as possible, for instance use template function for abs min max , .. instead of macro
 
 
 /*
+
 //we must have a same namespace for the whole project ?
-namesapce $ProjectName$
+namespace ProjectName
 {
 	
 };

@@ -1,1 +1,1 @@
-this folder is for editor only resources like icons sound, .. 
+this folder is for editor only resources like icons, sound, .. 
