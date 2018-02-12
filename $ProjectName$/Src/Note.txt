@@ -1,0 +1,4 @@
+the main directory for codes
+each module must be in a folder and have a CMakeLists.txt for build and a ModuleName.h
+ModuleName.h is the base header of module in which there are basic stuff like api declaration
+
